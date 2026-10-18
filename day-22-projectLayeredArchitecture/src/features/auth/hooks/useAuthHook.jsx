@@ -3,6 +3,7 @@ import { useNavigate } from "react-router"
 import { loginUserApi } from "../api/authAPI";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { loginUserAction } from "../state/authAction";
 export const useAuth = ()=>{
     let dispatch = useDispatch();
     let navigate = useNavigate();
@@ -13,9 +14,8 @@ export const useAuth = ()=>{
     }
     const loginForm = async (data)=>{
         try{
-            let response = await loginUserApi(data)
-            dispatch(addUser(response))
-            toast.success("Login successful")
+            dispatch(loginUserAction(data))
+            
         }catch(err){
             console.log(err)
         }

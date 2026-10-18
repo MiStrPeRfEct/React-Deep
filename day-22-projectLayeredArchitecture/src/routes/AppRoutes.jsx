@@ -12,15 +12,15 @@ import OrderPage from '../features/orders/ui/pages/OrderPage'
 import CartPage from '../features/cart/ui/pages/CartPage'
 import { hydrateUser } from '../features/auth/api/authAPI'
 import { useDispatch } from 'react-redux'
+import { hydrateUserAction } from '../features/auth/state/authAction'
 
 const AppRoutes = () => {
 
     let dispatch = useDispatch()
     useEffect(()=>{
-        (async()=>{
+        (()=>{
             try{
-                let response = await hydrateUser()
-                dispatch(addUser(response))
+                dispatch(hydrateUserAction())
 
             }catch(err){
                 console.log(err)
