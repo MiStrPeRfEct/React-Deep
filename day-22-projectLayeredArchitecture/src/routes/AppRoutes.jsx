@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useEffect}from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import AuthLayout from '../app/layouts/AuthLayout'
 import PublicProtected from './protected/PublicProtected'
@@ -13,6 +13,7 @@ import CartPage from '../features/cart/ui/pages/CartPage'
 import { hydrateUser } from '../features/auth/api/authAPI'
 import { useDispatch } from 'react-redux'
 import { hydrateUserAction } from '../features/auth/state/authAction'
+import AboutPage from '../shared/ui/pages/AboutPage'
 
 const AppRoutes = () => {
 
@@ -75,6 +76,10 @@ const AppRoutes = () => {
                         {
                             path: "cart",
                             element: <CartPage/>
+                        },
+                        {
+                            path: "about",
+                            element: <AboutPage/>
                         },
                     ]
                 }
